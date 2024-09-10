@@ -1,9 +1,9 @@
 import sys
-sys.path.append('/Users/kovu/Documents/Projects/Blockchain/Blockchain_learn/')
+sys.path.append('/Users/kovu/Documents/Projects/Blockchain/Blockchainlearn/Blockchain_learn')
 
 from Blockchain.Backend.core.block import Block
 from Blockchain.Backend.core.blockheader import BlockHeader
-from ..util import hash256
+from ..util.util import hash256
 import time
 
 ZERO_HASH = '0' * 64
