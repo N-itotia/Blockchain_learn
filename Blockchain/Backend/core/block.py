@@ -7,5 +7,5 @@ class Block:
         self.Blocksize = Blocksize
         self.Blockheader = BlockHeader
         self.Txcount = Txcount
-        self.Txs - Txs
+        self.Txs = Txs
         pass
