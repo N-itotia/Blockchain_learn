@@ -1,9 +1,9 @@
 import sys
-sys.path.append('/Users/kovu/Documents/Projects/Blockchain/Blockchainlearn/Blockchain_learn')
+sys.path.append('D:\\Projects\\Blockchain_learn')
 
 from Blockchain.Backend.core.block import Block
 from Blockchain.Backend.core.blockheader import BlockHeader
-from ..util.util import hash256
+from Blockchain.Backend.util.util import hash256
 import time
 
 ZERO_HASH = '0' * 64
@@ -29,5 +29,5 @@ class Blockchain:
         self.chain.append(Block(BlockHeight, 1, blockHeader, 1, Transaction))
         print(self.chain)
         
-if __name__ =="__main___":
+if __name__ == "__main__":
     blockchain = Blockchain()
