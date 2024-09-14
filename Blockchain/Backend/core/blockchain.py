@@ -5,6 +5,7 @@ from Blockchain.Backend.core.block import Block
 from Blockchain.Backend.core.blockheader import BlockHeader
 from Blockchain.Backend.util.util import hash256
 import time
+import json
 
 ZERO_HASH = '0' * 64
 VERSION = 1
@@ -26,8 +27,16 @@ class Blockchain:
         bits = 'ffff001f'
         blockHeader = BlockHeader(VERSION, prevBlockHash, merkleRoot, timestamp, bits)
         blockHeader.mine()
-        self.chain.append(Block(BlockHeight, 1, blockHeader, 1, Transaction))
-        print(self.chain)
+        self.chain.append(Block(BlockHeight, 1, blockHeader.__dict__, 1, Transaction).__dict__)
+        print(json.dumps(self.chain, indent = 4))
+    
+    def main(self):
+        while True:
+            lastBlock = self.chain[::-1]
+            BlockHeight = lastBlock[0]["Height"] + 1
+            prevBlockHash = lastBlock[0]['BlockHeader']['blockHash']
+            self.addBlock(BlockHeight, prevBlockHash)
         
 if __name__ =="__main__":
     blockchain = Blockchain()
+    blockchain.main()
